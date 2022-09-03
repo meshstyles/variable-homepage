@@ -1,0 +1,19 @@
+{
+    "server": {
+        "title": "Home",
+        "services": [
+            {
+                "link": "/git/",
+                "linkText": "Gitea",
+                "img": "https://gitea.io/images/gitea.png",
+                "imgAlt": "gitea logo"
+            },
+            {
+                "link": "/tracking/",
+                "linkText": "Parcel Tracking",
+                "img": "./img/parcel-logo.png",
+                "imgAlt": "parcel tracking logo"
+            }
+        ]
+    }
+}

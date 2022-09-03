@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Server Home Page</title>
+
+        <!-- this script sets up syle and allows for theme changes -->
+        <script src="./js/themeswitch.js"></script>
+
+        <!-- Vue.js -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <!-- Axios -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+        <link rel="stylesheet" href="./css/additions.css" />
+    </head>
+    <body>
+        <div id="app">
+            <p class="text-center title-text-5">
+                Welcome to {{server.title}} Server
+            </p>
+
+            <div class="container">
+                <!--Row with two equal columns-->
+                <!--rows are 12 elements wide-->
+                <!--we will ignore this to make things simple-->
+
+                <div class="row row-flex">
+                    <div
+                        v-for="services in server.services"
+                        :key="services.link"
+                        class="col-md-4 col-sm-6 col-xs-12"
+                    >
+                        <a :href="services.link">
+                            <div class="content bg-primary">
+                                <img
+                                    class="center-block logo"
+                                    :src="services.img"
+                                    alt="services.imgAlt"
+                                    loading="lazy"
+                                    width="150"
+                                /><br />
+                                <p
+                                    class="text-center breaking-text"
+                                >
+                                    {{services.linkText}}
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="themeSwitcher" class="floating-button">🌛</div>
+            </div>
+        </div>
+        <script>
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    server: {},
+                },
+                methods: {
+                    getData() {
+                        console.log("running");
+                        this.searchText = false;
+                        axios
+                            .get(`./data/services.json`)
+                            .then(
+                                (response) =>
+                                    (this.server = response.data.server)
+                            );
+                    },
+                },
+                created() {
+                    this.getData();
+                },
+                mounted() {},
+            });
+        </script>
+    </body>
+</html>

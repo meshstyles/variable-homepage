@@ -1,0 +1,46 @@
+.floating-button {
+    position: fixed;
+    width: 3em;
+    height: 3em;
+    background: #2cb3f0;
+    border-radius: 50%;
+    bottom: 0;
+    right: 0;
+    margin: 1em;
+    color: white;
+    line-height: 3em;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.logo {
+    padding: 1em;
+}
+
+.title-text-5 {
+    font-size: 5em;
+}
+
+.row-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* vertical spacing between columns */
+[class*="col-"] {
+    margin-bottom: 1em;
+}
+
+.content {
+    height: 100%;
+    padding: 2em 2em 1em;
+}
+
+.bg-border {
+    border: 1px solid #2a9fd6;
+}
+
+.breaking-text {
+    white-space: pre-line;
+    word-break: break-all;
+}
